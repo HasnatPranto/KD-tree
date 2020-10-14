@@ -69,17 +69,18 @@ public class KDCore {
     }
     public void printTree(Node p, int tab, char childMark){
 
-        if(p==null) return;
+      if(p==null) return;
 
         System.out.print("lvl= "+tab);
-        for(int i=0;i<tab;i++) System.out.print('\t');
+
+        for(int i=0;i<tab*2;i++) System.out.print("   ");
 
         if(childMark!='0') {
-            System.out.print(" { ");
+            System.out.print(childMark+"--> { ");
 
             for (int i = 0; i < p.co_ord.size() - 1; i++)
                 System.out.print(p.co_ord.get(i) + ", ");
-            System.out.println(p.co_ord.get(p.co_ord.size() - 1) + " } " + childMark);
+            System.out.println(p.co_ord.get(p.co_ord.size() - 1) + " }");
         }
         else{
              System.out.print("  { ");
@@ -88,7 +89,6 @@ public class KDCore {
             System.out.println(p.co_ord.get(p.co_ord.size() - 1) + " }");
 
         }
-        // System.out.println("{ "+p.x+","+p.y+" }");
         tab++;
         printTree(p.left, tab,'L');
         printTree(p.right,tab,'R');
